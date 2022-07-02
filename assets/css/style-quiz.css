@@ -587,7 +587,7 @@ footer {
 @media (max-height: 640px) {
   body {
     display: grid;
-    grid-template-rows: 3fr 8fr;
+    grid-template-rows: 2fr 8fr 1fr;
   }
 
   .footer {
