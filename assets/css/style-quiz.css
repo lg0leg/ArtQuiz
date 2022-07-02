@@ -134,7 +134,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 15px 15px;
+  grid-gap: 15px 15px;
 }
 
 .answer-option {
@@ -176,7 +176,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 20px 20px;
+  grid-gap: 20px 20px;
 }
 
 .question-pictures-for-choice-item {
@@ -426,7 +426,7 @@ footer {
   .question-answers {
     width: 70%;
     height: 15%;
-    gap: 15px 15px;
+    grid-gap: 15px 15px;
   }
 }
 
@@ -449,7 +449,7 @@ footer {
     padding-bottom: 30px;
     height: 80%;
 
-    gap: 10px 10px;
+    grid-gap: 10px 10px;
   }
 
   .question-text {
@@ -465,7 +465,7 @@ footer {
     width: 70%;
     /* height: 15%; */
     height: 20%;
-    gap: 10px 10px;
+    grid-gap: 10px 10px;
   }
 
   .answer-option {
@@ -510,7 +510,7 @@ footer {
 
   .question-answers {
     width: 80%;
-    gap: 7px 7px;
+    grid-gap: 7px 7px;
   }
 
   .answer-option {
