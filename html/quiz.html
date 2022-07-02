@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist-quiz</title>
+    <link href="../assets/app-img/favicon.ico" rel="shortcut icon"/>
+    <link rel="stylesheet" href="../assets/css/style-quiz.css">
+    <link rel="stylesheet" href="../assets/css/reset.css">
+</head>
+<body>
+    <header>
+        <div class="header-wrap container">
+            <div class="button-cancel">
+                <a href="./categories.html" class="settings-link">
+                    <img src="../assets/app-img/close.png" alt="cancel button" width="36" height="36">
+                </a>
+            </div>
+            <div class="correct-answer-dots" id="correct-answer-dots">
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+                <div class="answer-dots-item"></div>
+            </div>
+            <div class="empty-alignment-block"></div>
+        </div>
+
+    </header>
+
+    <main>
+        <div class="question-block container visually-hidden" id="guess-artist-block">
+            <p class="question-text">Кто автор этой картины?</p>
+            <div class="question-picture">
+                <img class="question-img" src="../assets/app-img/wait.jpg" alt="picture" id="guess-artist-block-picture">
+            </div>
+            <div class="question-answers">
+                <div class="answer-option" id="guess-artist-block-button-1">
+                    <p class="answer-option-text" id="guess-artist-block-author-1">Вариант загружается...</p>
+                </div>
+                <div class="answer-option" id="guess-artist-block-button-2">
+                    <p class="answer-option-text" id="guess-artist-block-author-2">Вариант загружается...</p>
+                </div>
+                <div class="answer-option" id="guess-artist-block-button-3">
+                    <p class="answer-option-text" id="guess-artist-block-author-3">Вариант загружается...</p>
+                </div>
+                <div class="answer-option" id="guess-artist-block-button-4">
+                    <p class="answer-option-text" id="guess-artist-block-author-4">Вариант загружается...</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="question-block container " id="guess-picture-block">
+            <p class="question-text">Какую из этих картин написал <span id="guess-picture-block-author-name">Имя Художника</span>?</p>
+            <div class="question-pictures-for-choice">
+                <div class="question-pictures-for-choice-item" id="guess-pictures-block-button-1">
+                    <span class="filter-img filter-img-red" id=""></span>
+                    <img class="question-img-small" src="../assets/app-img/wait.jpg" alt="picture" id="guess-picture-block-img-1">
+                </div>
+                <div class="question-pictures-for-choice-item" id="guess-pictures-block-button-2">
+                    <span class="filter-img " id=""></span>
+                    <img class="question-img-small" src="../assets/app-img/wait.jpg" alt="picture" id="guess-picture-block-img-2">
+                </div>
+                <div class="question-pictures-for-choice-item" id="guess-pictures-block-button-3">
+                    <span class="filter-img" id=""></span>
+                    <img class="question-img-small" src="../assets/app-img/wait.jpg" alt="picture" id="guess-picture-block-img-3">
+                </div>
+                <div class="question-pictures-for-choice-item" id="guess-pictures-block-button-4">
+                    <span class="filter-img filter-img-green" id=""></span>
+                    <img class="question-img-small" src="../assets/app-img/wait.jpg" alt="picture" id="guess-picture-block-img-4">
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="footer">
+        <div class="footer-wrap">
+            <a href="https://rs.school/js/" target="_blank">
+                <img class="footer-logo-rs" src="../assets/app-img/rs_school_logo.png" alt="rs school logo">
+            </a>
+            <p class="year">2021</p>
+            <a class="author" href="https://github.com/lg0leg" target="_blank">
+                <p ><span class="author-span">App developer: </span> lg0leg</p>
+            </a>
+        </div>
+    </footer>
+
+    <div class="black-screen visually-hidden" id="black-screen"></div>
+    
+    <div class="modal-wrapper visually-hidden" id="modal-wrapper">
+        <div class="modal-after-every-answer visually-hidden" id="modal-after-every-answer">
+            <div class="correct-picture-cont">
+                <img class="correct-picture-img" src="../assets/app-img/waitSq.jpg" alt="correct picture" id="correct-picture-img">
+                <img class="correct-or-wrong-icon" src="../assets/app-img/correct_answer_icon.png" alt="icon" id="correct-or-wrong-icon"></img>
+            </div>
+            <p class="correct-title-picture" id="correct-title-picture">Название картины загружается...</p>
+            <p class="correct-author-picture" id="correct-author-picture">Автор картины загружается...</p>
+            <div class="button-next-question" id="modal-after-every-button-next">Следующий вопрос</div>
+        </div>
+
+        <div class="modal-after-last-answer visually-hidden" id="modal-after-last-answer">
+            <img class="congratulations-icon" src="../assets/app-img/champion_cup.png" alt="icon">
+            <p class="congratulations-text">Поздравляем!</p>
+            <div class="result-counter">
+                <span id="correct-answers-counter">8</span>
+                <span>/</span>
+                <span>10</span>
+            </div>
+            <div class="congratulations-buttons-wrap">
+                <a class="congratulations-button-link" href="../index.html">
+                    <div class="home-button">Домой</div>
+                </a>
+                <a class="congratulations-button-link" href="./categories.html">
+                    <div class="categories-button">В категории</div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/quizPage.js" type="module"></script>
+
+</body>
+</html>
