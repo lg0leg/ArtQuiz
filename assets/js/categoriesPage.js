@@ -1,6 +1,35 @@
 let quizCategorie = 'portrait';
 let quizType;
-let quizResultArr;
+let quizResultArr = [
+  {
+    portrait: '0',
+    landscape: '0',
+    stillLife: '0',
+    impressionism: '0',
+    expressionism: '0',
+    avantgarde: '0',
+    renaissance: '0',
+    surrealism: '0',
+    kitsch: '0',
+    minimalism: '0',
+    interior: '0',
+    nude: '0',
+  },
+  {
+    portrait: '0',
+    landscape: '0',
+    stillLife: '0',
+    impressionism: '0',
+    expressionism: '0',
+    avantgarde: '0',
+    renaissance: '0',
+    surrealism: '0',
+    kitsch: '0',
+    minimalism: '0',
+    interior: '0',
+    nude: '0',
+  },
+];
 
 const linkToHome1 = document.querySelector('#logo-link-to-home');
 const linkToHome2 = document.querySelector('#link-to-home');
