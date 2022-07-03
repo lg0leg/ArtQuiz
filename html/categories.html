@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Categories</title>
     <link href="../assets/app-img/favicon.ico" rel="shortcut icon" />
-    <link rel="stylesheet" href="../assets/css/style-categories.css" />
     <link rel="stylesheet" href="../assets/css/reset.css" />
+    <link rel="stylesheet" href="../assets/css/settings.css" />
+    <link rel="stylesheet" href="../assets/css/style-categories.css" />
   </head>
   <body>
     <header>
@@ -22,9 +23,11 @@
           <p class="pink-text categories-text">Categories</p>
         </div>
         <div class="button-settings">
-          <a href="#" class="settings-link">
-            <img src="../assets/app-img/carbon_settings.png" alt="settings button" width="36" height="36" />
-          </a>
+          <img class="settings-icon" id="button-settings-categories" src="../assets/app-img/carbon_settings.png" alt="settings button" width="36" height="36" />
+          <div class="settings-modal" id="settings-modal">
+            <p>sound</p>
+            <div class="switch-btn switch-btn-on" id="switcher"></div>
+          </div>
         </div>
       </div>
     </header>

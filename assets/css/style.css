@@ -41,24 +41,17 @@ body {
 }
 
 .button-settings {
+  position: relative;
   width: 36px;
   height: 36px;
 }
 
-.button-settings:hover {
+.settings-icon:hover {
   opacity: 0.8;
 }
 
-.button-settings:active {
-  opacity: 0.6;
-}
-
-.settings-link {
-  text-decoration: none;
-}
-
-.settings-link:focus {
-  outline: none;
+.settings-icon:active {
+  transform: scale(0.95);
 }
 
 .container {

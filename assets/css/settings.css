@@ -1,0 +1,77 @@
+.settings-modal {
+  position: absolute;
+  right: 36px;
+  top: 36px;
+  width: 200px;
+  height: 100px;
+  padding: 10px;
+
+  font-size: 40px;
+  font-family: Gilroy;
+  font-size: 24px;
+  line-height: 22px;
+  color: #fff;
+  text-transform: capitalize;
+  /* background-color: #ffffff; */
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  border: 1px solid #fff;
+
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s;
+}
+
+.settings-modal-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/*ползунок*/
+:root {
+  --switcher-width: 50px;
+}
+
+.switch-btn {
+  display: inline-block;
+  width: var(--switcher-width);
+  height: calc(var(--switcher-width) / 2);
+  border-radius: calc(var(--switcher-width) / 4);
+  background: #bfbfbf;
+  z-index: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition-duration: 300ms;
+  /* border: 2px solid #5d5d5d; */
+}
+
+.switch-btn-on {
+  background: #ffbca2;
+}
+
+.switch-btn::after {
+  content: '';
+  height: calc(var(--switcher-width) / 2);
+  width: calc(var(--switcher-width) / 2);
+  border-radius: calc(var(--switcher-width) / 4);
+  background: #fff;
+  top: 0;
+  left: 0;
+  transition-duration: 300ms;
+  position: absolute;
+  z-index: 1;
+  /* box-sizing: border-box;
+  border: 1px solid #bababa; */
+}
+
+.switch-btn-on::after {
+  left: calc(var(--switcher-width) / 2);
+}
