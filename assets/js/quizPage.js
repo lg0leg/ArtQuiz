@@ -103,7 +103,6 @@ function getLocalStorage() {
   if (localStorage.getItem('isSound')) {
     let a = localStorage.getItem('isSound');
     isSoundOn = a;
-    console.log(a);
   }
 }
 
