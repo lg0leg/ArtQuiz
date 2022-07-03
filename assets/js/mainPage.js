@@ -8,7 +8,7 @@ const switcher = document.querySelector('#switcher');
 let isSwitcherOn = 'false';
 
 const audio = new Audio();
-audio.src = '../assets/audio/click.mp3';
+audio.src = '../ArtQuiz/assets/audio/click.mp3';
 audio.volume = 0.5;
 
 function playAudio(isSwitcherOn) {
