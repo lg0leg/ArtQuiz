@@ -2,6 +2,8 @@ let quizCategorie = 'portrait';
 let quizType;
 let quizResultArr;
 
+const linkToHome1 = document.querySelector('#logo-link-to-home');
+const linkToHome2 = document.querySelector('#link-to-home');
 const categoriesContainer = document.querySelector('#categoriesContainer');
 const settingsButton = document.querySelector('#button-settings-categories');
 const settingsModal = document.querySelector('#settings-modal');
@@ -124,6 +126,22 @@ switcher.addEventListener('click', () => {
 settingsButton.addEventListener('click', () => {
   settingsModal.classList.toggle('settings-modal-active');
   playAudio(isSwitcherOn);
+});
+
+linkToHome1.addEventListener('click', (e) => {
+  e.preventDefault();
+  playAudio(isSwitcherOn);
+  setTimeout(() => {
+    document.location.href = '../index.html';
+  }, 200);
+});
+
+linkToHome2.addEventListener('click', (e) => {
+  e.preventDefault();
+  playAudio(isSwitcherOn);
+  setTimeout(() => {
+    document.location.href = '../index.html';
+  }, 200);
 });
 
 /*ls*/
