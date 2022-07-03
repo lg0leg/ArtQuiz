@@ -32,8 +32,12 @@ const picturesButton2 = document.querySelector('#guess-pictures-block-button-2')
 const picturesButton3 = document.querySelector('#guess-pictures-block-button-3');
 const picturesButton4 = document.querySelector('#guess-pictures-block-button-4');
 const modalButtonNextQ = document.querySelector('#modal-after-every-button-next');
+const exitButton = document.querySelector('#exit-button');
+let isSoundOn = 'false';
 
-// console.log(answerDotsItem[0]);
+const audio = new Audio();
+audio.src = '../assets/audio/click.mp3';
+audio.volume = 0.5;
 
 let quizType;
 let quizCategorie;
@@ -96,15 +100,18 @@ function getLocalStorage() {
   if (localStorage.getItem('quizResultArr')) {
     quizResultArr = JSON.parse(localStorage.getItem('quizResultArr'));
   }
+  if (localStorage.getItem('isSound')) {
+    let a = localStorage.getItem('isSound');
+    isSoundOn = a;
+  }
 }
-
-getLocalStorage();
-window.addEventListener('load', getLocalStorage);
 
 function setLocalStorage() {
   localStorage.setItem('quizResultArr', JSON.stringify(quizResultArr));
 }
 
+getLocalStorage();
+window.addEventListener('load', getLocalStorage);
 window.addEventListener('beforeunload', setLocalStorage);
 
 /*Меняет центральный блок под тип викторины*/
@@ -231,8 +238,10 @@ function setContentModalEvery(picNum, correctAnswer) {
   correctPictureImg.src = `../assets/img/${picNum}.jpg`;
   if (correctAnswer == 'yes') {
     correctIcon.src = `../assets/app-img/correct_answer_icon.png`;
+    afterAnswerSound(isSoundOn, correctAnswer);
   } else {
     correctIcon.src = `../assets/app-img/wrong_answer_icon.png`;
+    afterAnswerSound(isSoundOn, correctAnswer);
   }
   correctTitlePicture.innerHTML = images[picNum].name;
   let str = images[picNum].author + ', ' + images[picNum].year;
@@ -253,6 +262,9 @@ function setContentModalLast(totalCorrectAnswers) {
   toggleModalVisible();
   correctAnswersCounter.innerHTML = totalCorrectAnswers;
   modalAfterLastAnswer.classList.remove('visually-hidden');
+  setTimeout(() => {
+    victorySound(isSoundOn);
+  }, 300);
 }
 
 function modalLastOff() {
@@ -297,6 +309,15 @@ picturesButton4.addEventListener('click', () => {
 
 modalButtonNextQ.addEventListener('click', () => {
   setNextQuestion();
+  justClickSound(isSoundOn);
+});
+
+exitButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  justClickSound(isSoundOn);
+  setTimeout(() => {
+    document.location.href = './categories.html';
+  }, 200);
 });
 
 /*Запускает викторину*/
@@ -413,5 +434,28 @@ function setNextQuestion() {
   } else {
     modalEveryOff();
     startQuiz(quizType);
+  }
+}
+
+/*звуки для кнопок*/
+
+function justClickSound(isSoundOn) {
+  if (isSoundOn == 'true') {
+    audio.src = '../assets/audio/click.mp3';
+    audio.play();
+  }
+}
+
+function victorySound(isSoundOn) {
+  if (isSoundOn == 'true') {
+    audio.src = '../assets/audio/final.mp3';
+    audio.play();
+  }
+}
+
+function afterAnswerSound(isSoundOn, isCorrect) {
+  if (isSoundOn == 'true') {
+    audio.src = isCorrect == 'yes' ? '../assets/audio/correct.mp3' : '../assets/audio/wrong.mp3';
+    audio.play();
   }
 }
