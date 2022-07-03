@@ -2,35 +2,34 @@ let quizCategorie = 'portrait';
 let quizType;
 let quizResultArr;
 
+const categoriesContainer = document.querySelector('#categoriesContainer');
 const settingsButton = document.querySelector('#button-settings-categories');
 const settingsModal = document.querySelector('#settings-modal');
 const switcher = document.querySelector('#switcher');
-let isSwitcherOn = true;
+let isSwitcherOn = 'false';
 
-const categoriesContainer = document.querySelector('#categoriesContainer');
+const audio = new Audio();
+audio.src = '../assets/audio/click.mp3';
+audio.volume = 0.5;
 
-categoriesContainer.addEventListener('click', (event) => {
-  quizCategorie = event.target.id;
-  setLocalStorage();
-});
-
-function setLocalStorage() {
-  localStorage.setItem('quizCategorie', quizCategorie);
-}
-
-window.addEventListener('beforeunload', setLocalStorage);
-
-function getLocalStorage() {
-  if (localStorage.getItem('quizType')) {
-    quizType = localStorage.getItem('quizType');
-  }
-  if (localStorage.getItem('quizResultArr')) {
-    quizResultArr = JSON.parse(localStorage.getItem('quizResultArr'));
-  }
-}
-
+/*лучше не удалять*/
 getLocalStorage();
-window.addEventListener('load', getLocalStorage);
+
+function playAudio(isSwitcherOn) {
+  if (isSwitcherOn == 'true') {
+    audio.play();
+  }
+}
+
+function checkSwitcher(isSwitcherOn) {
+  if (isSwitcherOn == 'true') {
+    switcher.classList.add('switch-btn-on');
+    isSwitcherOn = 'true';
+  } else {
+    switcher.classList.remove('switch-btn-on');
+    isSwitcherOn = 'false';
+  }
+}
 
 function setQuizresult(quizType, quizResultArr) {
   let i;
@@ -100,13 +99,55 @@ function setFilterForPassed(quizType, quizResultArr) {
   }
 }
 
+setFilterForPassed(quizType, quizResultArr);
+
+/*обработчики*/
+
+categoriesContainer.addEventListener('click', (event) => {
+  event.preventDefault();
+  quizCategorie = event.target.id;
+  setLocalStorage();
+  if (event.target.classList.contains('card-picture-img')) {
+    playAudio(isSwitcherOn);
+    setTimeout(() => {
+      document.location.href = './quiz.html';
+    }, 200);
+  }
+});
+
 switcher.addEventListener('click', () => {
   switcher.classList.toggle('switch-btn-on');
-  isSwitcherOn = switcher.classList.contains('switch-btn-on') ? true : false;
+  isSwitcherOn = switcher.classList.contains('switch-btn-on') ? 'true' : 'false';
+  setLocalStorage();
 });
 
 settingsButton.addEventListener('click', () => {
   settingsModal.classList.toggle('settings-modal-active');
+  playAudio(isSwitcherOn);
 });
 
-setFilterForPassed(quizType, quizResultArr);
+/*ls*/
+
+function setLocalStorage() {
+  localStorage.setItem('quizCategorie', quizCategorie);
+  localStorage.setItem('isSound', isSwitcherOn);
+}
+
+function getLocalStorage() {
+  if (localStorage.getItem('quizType')) {
+    quizType = localStorage.getItem('quizType');
+  }
+  if (localStorage.getItem('quizResultArr')) {
+    quizResultArr = JSON.parse(localStorage.getItem('quizResultArr'));
+  }
+  setFilterForPassed(quizType, quizResultArr);
+  setQuizresult(quizType, quizResultArr);
+  if (localStorage.getItem('isSound')) {
+    let a = localStorage.getItem('isSound');
+    isSwitcherOn = a;
+    checkSwitcher(a);
+  }
+}
+
+window.addEventListener('load', getLocalStorage);
+window.addEventListener('beforeunload', setLocalStorage);

@@ -186,7 +186,7 @@ body {
 
   .header-wrap {
     padding-right: 20px;
-    transition: padding-right 1s;
+    /* transition: padding-right 1s; */
   }
 
   .button-to-quiz {
