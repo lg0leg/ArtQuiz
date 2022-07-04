@@ -50,6 +50,7 @@
   position: relative;
   transition-duration: 300ms;
   /* border: 2px solid #5d5d5d; */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .switch-btn-on {

@@ -37,7 +37,7 @@ let isSoundOn = 'false';
 
 const audio = new Audio();
 audio.src = '../assets/audio/click.mp3';
-audio.volume = 0.5;
+audio.volume = 0.4;
 
 let quizType;
 let quizCategorie;
@@ -247,12 +247,18 @@ function setContentModalEvery(picNum, correctAnswer) {
   let str = images[picNum].author + ', ' + images[picNum].year;
   correctAuthorPicture.innerHTML = str;
   modalAfterEveryAnswer.classList.remove('visually-hidden');
+  setTimeout(() => {
+    modalAfterEveryAnswer.classList.remove('fade');
+  }, 100);
 }
 
 function modalEveryOff() {
-  modalAfterEveryAnswer.classList.add('visually-hidden');
-  toggleModalVisible();
-  toggleBlackFilter();
+  modalAfterEveryAnswer.classList.add('fade');
+  setTimeout(() => {
+    modalAfterEveryAnswer.classList.add('visually-hidden');
+    toggleModalVisible();
+    toggleBlackFilter();
+  }, 300);
 }
 
 /*Добавляет модальное окно после последнего ответа*/
@@ -411,7 +417,10 @@ function checkAnswer(numPressedButton) {
   } else {
     correctAnswer = 'no';
   }
-  setContentModalEvery(picNum, correctAnswer);
+  setTimeout(() => {
+    setContentModalEvery(picNum, correctAnswer);
+  }, 200);
+  // setContentModalEvery(picNum, correctAnswer);
 
   numCurrentQ += 1;
 }

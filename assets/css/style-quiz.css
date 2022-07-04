@@ -293,8 +293,8 @@ footer {
   border-radius: 20px;
 
   opacity: 1;
-  visibility: visible;
-  transition: opacity 2s, visibility 0s linear 0s;
+  transform: translateY(0);
+  transition: all 0.5s;
 }
 
 .correct-picture-cont {
@@ -412,6 +412,12 @@ footer {
   height: 62px;
   background: #ffbca2;
   border-radius: 60px;
+}
+
+.fade {
+  transform: translateY(-100px);
+  opacity: 0;
+  transition: all 1s;
 }
 
 .visually-hidden {
