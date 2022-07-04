@@ -421,8 +421,6 @@ footer {
 }
 
 .visually-hidden {
-  transform: translateY(50px);
-  transition: all 1s;
   display: none;
 }
 
