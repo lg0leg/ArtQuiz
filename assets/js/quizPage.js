@@ -247,16 +247,12 @@ function setContentModalEvery(picNum, correctAnswer) {
   let str = images[picNum].author + ', ' + images[picNum].year;
   correctAuthorPicture.innerHTML = str;
   modalAfterEveryAnswer.classList.remove('visually-hidden');
-  // modalAfterEveryAnswer.classList.remove('fade');
   setTimeout(() => {
     modalAfterEveryAnswer.classList.remove('fade');
   }, 100);
 }
 
 function modalEveryOff() {
-  // modalAfterEveryAnswer.classList.add('visually-hidden');
-  // toggleModalVisible();
-  // toggleBlackFilter();
   modalAfterEveryAnswer.classList.add('fade');
   setTimeout(() => {
     modalAfterEveryAnswer.classList.add('visually-hidden');
